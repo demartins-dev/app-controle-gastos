@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { IGasto } from '../../../../services/gasto';
 
 @Component({
   selector: 'app-historico',
@@ -8,7 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './historico.scss'
 })
 export class Historico {
-  @Input() gastos: {descricao: string, valor: number, categoria: string, data: string}[] = [];
+  @Input() gastos: IGasto[] = [];
   @Output() gastoRemovido = new EventEmitter<number>();
 
   get total() {

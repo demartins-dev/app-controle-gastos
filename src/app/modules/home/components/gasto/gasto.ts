@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { IGasto } from '../../../../services/gasto';
 
 @Component({
   selector: 'app-gasto',
@@ -22,12 +23,7 @@ export class Gasto {
     'Outros'
   ];
 
-  @Output() gastoAdicionado = new EventEmitter<{
-    descricao: string,
-    valor: number,
-    categoria: string,
-    data: string
-  }>();
+  @Output() gastoAdicionado = new EventEmitter<IGasto>();
 
   adicionar() {
     if (this.valor > 0 && this.categoria) {

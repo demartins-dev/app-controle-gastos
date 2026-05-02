@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Gasto } from './components/gasto/gasto';
 import { Historico } from './components/historico/historico';
+import { GastoService, IGasto } from '../../services/gasto';
 
 @Component({
   selector: 'app-home',
@@ -9,13 +10,17 @@ import { Historico } from './components/historico/historico';
   styleUrl: './home.scss'
 })
 export class Home {
-  gastos: {descricao: string, valor: number, categoria: string, data: string}[] = [];
+  private gastoService = inject(GastoService);
 
-  adicionarGasto(gasto: {descricao: string, valor: number, categoria: string, data: string}) {
-    this.gastos.push(gasto);
+  get gastos() {
+    return this.gastoService.obterGastos();
+  }
+
+  adicionarGasto(gasto: IGasto) {
+    this.gastoService.adicionarGasto(gasto);
   }
 
   removerGasto(index: number) {
-    this.gastos.splice(index, 1);
+    this.gastoService.removerGasto(index);
   }
 }
