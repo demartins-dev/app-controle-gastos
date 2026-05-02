@@ -1,0 +1,27 @@
+.historico {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    margin-bottom: 16px;
+  }
+
+  .gasto-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+
+    span:last-child {
+      font-weight: bold;
+      color: #6200ea;
+    }
+  }
+
+  p {
+    color: #999;
+    font-style: italic;
+  }
+}
