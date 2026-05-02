@@ -1,12 +1,28 @@
 <div class="historico">
   <h2>Histórico de Gastos</h2>
+
   @if (gastos.length === 0) {
     <p>Nenhum gasto adicionado ainda.</p>
   }
-  @for (gasto of gastos; track gasto.descricao) {
+
+  @for (gasto of gastos; track gasto.descricao; let i = $index) {
     <div class="gasto-item">
-      <span>{{ gasto.descricao }}</span>
-      <span> R$ {{ gasto.valor }}</span>
+      <div class="gasto-info">
+        <span class="categoria">{{ gasto.categoria }}</span>
+        <span class="descricao">{{ gasto.descricao }}</span>
+        <span class="data">{{ gasto.data }}</span>
+      </div>
+      <div class="gasto-valor">
+        <span>R$ {{ gasto.valor }}</span>
+        <button class="btn-remover" (click)="remover(i)">✕</button>
+      </div>
+    </div>
+  }
+
+  @if (gastos.length > 0) {
+    <div class="total">
+      <span>Total</span>
+      <span>R$ {{ total }}</span>
     </div>
   }
 </div>

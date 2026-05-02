@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,5 +8,14 @@ import { CommonModule } from '@angular/common';
   styleUrl: './historico.scss'
 })
 export class Historico {
-  @Input() gastos: {descricao: string, valor: number}[] = [];
+  @Input() gastos: {descricao: string, valor: number, categoria: string, data: string}[] = [];
+  @Output() gastoRemovido = new EventEmitter<number>();
+
+  get total() {
+    return this.gastos.reduce((acc, gasto) => acc + gasto.valor, 0);
+  }
+
+  remover(index: number) {
+    this.gastoRemovido.emit(index);
+  }
 }

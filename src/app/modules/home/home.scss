@@ -1,5 +1,29 @@
 .container {
-  max-width: 600px;
+  max-width: 1000px;
   margin: 40px auto;
   padding: 0 20px;
+
+  h1 {
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .content {
+    display: flex;
+    gap: 24px;
+
+    app-gasto {
+      flex: 1;
+    }
+
+    app-historico {
+      flex: 1;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container .content {
+    flex-direction: column;
+  }
 }

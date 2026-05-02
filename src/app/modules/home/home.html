@@ -1,5 +1,7 @@
 <div class="container">
   <h1>Controle de Gastos</h1>
-  <app-gasto (gastoAdicionado)="adicionarGasto($event)"></app-gasto>
-  <app-historico [gastos]="gastos"></app-historico>
+  <div class="content">
+    <app-gasto (gastoAdicionado)="adicionarGasto($event)"></app-gasto>
+    <app-historico [gastos]="gastos" (gastoRemovido)="removerGasto($event)"></app-historico>
+  </div>
 </div>

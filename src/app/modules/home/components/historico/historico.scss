@@ -11,11 +11,67 @@
   .gasto-item {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 12px 0;
     border-bottom: 1px solid #f0f0f0;
 
+    .gasto-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      .categoria {
+        font-weight: bold;
+        color: #333;
+      }
+
+      .descricao {
+        font-size: 13px;
+        color: #666;
+      }
+
+      .data {
+        font-size: 12px;
+        color: #999;
+      }
+    }
+
+    .gasto-valor {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        span {
+            font-weight: bold;
+            color: #6200ea;
+        }
+
+        .btn-remover {
+            background: none;
+            border: none;
+            color: #ff4444;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 4px 8px;
+            border-radius: 4px;
+
+            &:hover {
+                background-color: #fff0f0;
+            }
+        }
+    }
+  }
+
+  .total {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 16px;
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+
     span:last-child {
-      font-weight: bold;
       color: #6200ea;
     }
   }
