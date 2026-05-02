@@ -1,0 +1,12 @@
+<div class="historico">
+  <h2>Histórico de Gastos</h2>
+  @if (gastos.length === 0) {
+    <p>Nenhum gasto adicionado ainda.</p>
+  }
+  @for (gasto of gastos; track gasto.descricao) {
+    <div class="gasto-item">
+      <span>{{ gasto.descricao }}</span>
+      <span> R$ {{ gasto.valor }}</span>
+    </div>
+  }
+</div>
